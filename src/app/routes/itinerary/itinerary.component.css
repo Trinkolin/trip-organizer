@@ -1,0 +1,45 @@
+.schedule-container {
+  position: relative;
+  width: 100%;
+  height: 1440px; /* Total height for 24 hours, each hour slot is 60px */
+}
+
+.time-slots-table {
+  width: 100%;
+  height: 100%;
+}
+
+.mat-header-cell, .mat-cell {
+  height: 60px; /* Height of each time slot */
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.events-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Disable pointer events to pass through */
+}
+
+.event {
+  position: absolute;
+  width: calc(100% - 16px); /* Full width minus padding */
+  left: 8px; /* Add padding to left */
+}
+
+.event-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-card-image {
+  height: 60px;
+  object-fit: cover;
+}
