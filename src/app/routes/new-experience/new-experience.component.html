@@ -1,24 +1,19 @@
 <mat-card class="p-4 m-4">
 
-
   <form (ngSubmit)="onSubmit()" [formGroup]="experienceForm" class="flex flex-col">
-    <div class="flex gap-x-4">
     <mat-form-field class="w-64">
       <mat-label>Title</mat-label>
       <input formControlName="title" matInput required/>
 
-        <mat-error></mat-error>
+      <mat-error></mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-64">
       <mat-label>Subtitle</mat-label>
       <input formControlName="subtitle" matInput/>
     </mat-form-field>
-    </div>
 
-    <div class="flex gap-x-4">
-
-      <app-days-select [selectedDay]="selectedDay" style="width:256px !important"></app-days-select>
+    <app-days-select [selectedDay]="selectedDay" style="width:256px !important"></app-days-select>
 
     <mat-form-field class="w-64">
       <mat-label>Time</mat-label>
@@ -31,8 +26,6 @@
         <strong> Duration </strong> <em> minutes</em></mat-label>
       <input formControlName="duration" matInput type="number"/>
     </mat-form-field>
-    </div>
-
 
     <mat-form-field class="w-64">
       <mat-label>Location</mat-label>
@@ -47,14 +40,5 @@
     <button class="w-64" color="primary" mat-raised-button type="submit">Create Spectacle</button>
   </form>
 
-
 </mat-card>
 
-<div *ngIf="experience">
-  <h2>{{ experience.title }}</h2>
-  <p>{{ experience.subtitle }}</p>
-  <p><strong>Time:</strong> {{ experience.time }}</p>
-  <p><strong>Location:</strong> {{ experience.location }}</p>
-  <p><strong>Duration:</strong> {{ experience.duration }} minutes</p>
-  <img alt="{{ experience.title }}" ngSrc="spectacle.image_url"/>
-</div>
