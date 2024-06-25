@@ -7,7 +7,7 @@
       "19:05"
     ],
     "title": "A Million Splashes of Colour*",
-    "image_url": "/assets/images/splashes.jpg",
+    "image_url": "/trip-organizer/assets/images/splashes.jpg",
     "location": "Disneyland Park",
     "duration": 33
   },
@@ -16,7 +16,7 @@
       "11:30"
     ],
     "title": "Stars on Parade",
-    "image_url": "/assets/images/starsonparade.jpg",
+    "image_url": "/trip-organizer/assets/images/starsonparade.jpg",
     "location": "Disneyland Park",
     "duration": 33
   },
@@ -29,7 +29,7 @@
       "19:30"
     ],
     "title": "Mickey et le Magicien",
-    "image_url": "/assets/images/mickeyandmagician.jpg",
+    "image_url": "/trip-organizer/assets/images/mickeyandmagician.jpg",
     "location": "Walt Disney Studios",
     "duration": 30
   },
@@ -41,7 +41,7 @@
     ],
     "title": "Alice et la Reine de Cœur",
     "subtitle": "Retour au Pays des Merveilles",
-    "image_url": "/assets/images/aliceinwonderland.jpg",
+    "image_url": "/trip-organizer/assets/images/aliceinwonderland.jpg",
     "location": "Walt Disney Studios",
     "duration": 30
   },
@@ -54,7 +54,7 @@
       "17:35"
     ],
     "title": "La Fabrique des Rêves de Disney Junior",
-    "image_url": "/assets/images/disneyjunior.jpg",
+    "image_url": "/trip-organizer/assets/images/disneyjunior.jpg",
     "location": "Walt Disney Studios",
     "duration": 20
   },
@@ -66,7 +66,7 @@
       "17:05"
     ],
     "title": "Le Roi Lion et les Rythmes de la Terre",
-    "image_url": "/assets/images/lionking.png",
+    "image_url": "/trip-organizer/assets/images/lionking.png",
     "location": "Disneyland Park",
     "duration": 30
   },
@@ -80,7 +80,7 @@
     ],
     "title": "TOGETHER*",
     "subtitle": "une Aventure Musicale Pixar",
-    "image_url": "/assets/images/together.jpg",
+    "image_url": "/trip-organizer/assets/images/together.jpg",
     "location": "Walt Disney Studios",
     "duration": 30
   },
@@ -89,7 +89,7 @@
       "22:50"
     ],
     "title": "Electrical Sky Parade*",
-    "image_url": "/assets/images/msepis.jpg",
+    "image_url": "/trip-organizer/assets/images/msepis.jpg",
     "location": "Disneyland Park",
     "duration": 7
   },
@@ -98,7 +98,7 @@
       "23:00"
     ],
     "title": "Illuminations",
-    "image_url": "/assets/images/illuminations.jpg",
+    "image_url": "/trip-organizer/assets/images/illuminations.jpg",
     "location": "Disneyland Park",
     "duration": 20
   }
