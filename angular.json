@@ -93,7 +93,12 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://trinkolin.github.io/trip-organizer/",
+            "name": "TK",
+            "email": "trinkolin@gmail.com"
+          }
         }
       }
     }
