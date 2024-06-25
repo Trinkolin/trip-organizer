@@ -1,23 +1,27 @@
-import {Component, inject} from '@angular/core';
-import {DLP, Experience, ExperienceService, WDS,} from '../../shared/experience.service';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {CommonModule} from '@angular/common';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {TruncatePipe} from '../../shared/truncate.pipe';
-import {MatChipsModule} from '@angular/material/chips';
+import { Component, inject } from '@angular/core';
+import {
+  DLP,
+  Experience,
+  ExperienceService,
+  WDS,
+} from '../../shared/experience.service';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { CommonModule } from '@angular/common';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { TruncatePipe } from '../../shared/truncate.pipe';
+import { MatChipsModule } from '@angular/material/chips';
 
-import {SpectacleCardComponent} from "./spectacle-card/spectacle-card.component";
-import {SelectedParkPipe} from "../../shared/selected-park.pipe";
-
+import { SpectacleCardComponent } from './spectacle-card/spectacle-card.component';
+import { SelectedParkPipe } from '../../shared/selected-park.pipe';
 
 export type DayEvents = { [key: string]: Experience[] };
 
@@ -41,12 +45,14 @@ export type DayEvents = { [key: string]: Experience[] };
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
-    TruncatePipe, MatChipsModule, SpectacleCardComponent, SelectedParkPipe
+    TruncatePipe,
+    MatChipsModule,
+    SpectacleCardComponent,
+    SelectedParkPipe,
   ],
   templateUrl: './spectacles.component.html',
 })
 export class SpectaclesComponent {
-
   experienceService = inject(ExperienceService);
 
   selectedParcs: string[] = [DLP, WDS];

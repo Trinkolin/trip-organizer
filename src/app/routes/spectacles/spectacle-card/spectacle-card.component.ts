@@ -1,24 +1,37 @@
-import {Component, inject, input, signal} from '@angular/core';
-import {DLP, Experience, ExperienceService} from "../../../shared/experience.service";
-import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { Component, inject, input, signal } from '@angular/core';
+import {
+  DLP,
+  Experience,
+  ExperienceService,
+} from '../../../shared/experience.service';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatCard,
   MatCardActions,
   MatCardContent,
   MatCardHeader,
   MatCardSubtitle,
-  MatCardTitle
-} from "@angular/material/card";
-import {TruncatePipe} from "../../../shared/truncate.pipe";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatOption, MatSelect} from "@angular/material/select";
-import {DatePipe, NgForOf, NgOptimizedImage} from "@angular/common";
-import {MatIcon} from "@angular/material/icon";
-import {MatButton} from "@angular/material/button";
-import {MatChip, MatChipGrid, MatChipInput, MatChipRow, MatChipsModule} from "@angular/material/chips";
-import {MatCheckbox} from "@angular/material/checkbox";
-import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
-import {DaysSelectComponent} from "../../../shared/core/days-select/days-select.component";
+  MatCardTitle,
+} from '@angular/material/card';
+import { TruncatePipe } from '../../../shared/truncate.pipe';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatOption, MatSelect } from '@angular/material/select';
+import { DatePipe, NgForOf, NgOptimizedImage } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
+import {
+  MatChip,
+  MatChipGrid,
+  MatChipInput,
+  MatChipRow,
+  MatChipsModule,
+} from '@angular/material/chips';
+import { MatCheckbox } from '@angular/material/checkbox';
+import {
+  MatButtonToggle,
+  MatButtonToggleGroup,
+} from '@angular/material/button-toggle';
+import { DaysSelectComponent } from '../../../shared/core/days-select/days-select.component';
 
 interface TimeControls {
   [key: string]: boolean; // Index signature to allow any string key with boolean values
@@ -46,17 +59,22 @@ interface TimeControls {
     MatChipRow,
     FormsModule,
     MatChipInput,
-    NgForOf, MatLabel, MatChip, MatChipsModule, MatButtonToggle, MatButtonToggleGroup, NgOptimizedImage, MatCheckbox, DaysSelectComponent
+    NgForOf,
+    MatLabel,
+    MatChip,
+    MatChipsModule,
+    MatButtonToggle,
+    MatButtonToggleGroup,
+    NgOptimizedImage,
+    MatCheckbox,
+    DaysSelectComponent,
   ],
   templateUrl: './spectacle-card.component.html',
-  styleUrl: './spectacle-card.component.css'
 })
 export class SpectacleCardComponent {
-
   experienceService = inject(ExperienceService);
 
   spectacle = input.required<Experience>();
-
 
   selectedDay = new FormControl('');
   timeCtrl: FormControl = new FormControl('');
@@ -70,17 +88,9 @@ export class SpectacleCardComponent {
   }
 
   remove(experience: Experience) {
-    /*  const dayValue = this.selectedDay.value;
-      const timeValue = this.timeCtrl.value;
+    const dayValue = this.selectedDay.value;
+    const timeValue = this.timeCtrl.value;
 
-      if (dayValue && timeValue.length > 0 ) {
-        let modified =   this.experienceService.removeEvent(experience, dayValue, timeValue);
-
-        if (modified){
-          this.dataService.removeItem('dayEvents');
-          this.dataService.storeData('dayEvents', this.experienceService.dayEvents);
-        }
-      }*/
+    this.experienceService.remove(experience, dayValue, timeValue);
   }
-
 }

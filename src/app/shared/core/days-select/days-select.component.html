@@ -1,11 +1,13 @@
-<mat-form-field  class="w-full">
+@if (days){
+<mat-form-field class="w-full">
   <mat-label>Jour</mat-label>
   <mat-select [formControl]="selectedDay()" required>
     @for (day of days; track day) {
-      <mat-option [value]="day.value" >{{
-          day.viewValue | date : "fullDate"
-        }}
-      </mat-option>
+    <mat-option [value]="day.value">{{
+      day.viewValue | date : "fullDate"
+      }}
+    </mat-option>
     }
   </mat-select>
 </mat-form-field>
+}

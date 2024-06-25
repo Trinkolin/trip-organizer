@@ -1,16 +1,16 @@
-import {Component, inject} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Experience, ExperienceService} from "../../shared/experience.service";
-import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatCard} from "@angular/material/card";
-import {AsyncPipe, DatePipe, JsonPipe, NgIf, NgOptimizedImage} from "@angular/common";
-import {MatButton} from "@angular/material/button";
-import {MatInput} from "@angular/material/input";
-import {MatOption, MatSelect} from "@angular/material/select";
-import {MatIcon} from "@angular/material/icon";
-import {DayEvents} from "../spectacles/spectacles.component";
-import {DataService} from "../../shared/core/data.service";
-import {DaysSelectComponent} from "../../shared/core/days-select/days-select.component";
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { Experience, ExperienceService } from "../../shared/experience.service";
+import { MatError, MatFormField, MatLabel } from "@angular/material/form-field";
+import { MatCard } from "@angular/material/card";
+import { AsyncPipe, DatePipe, JsonPipe, NgIf, NgOptimizedImage } from "@angular/common";
+import { MatButton } from "@angular/material/button";
+import { MatInput } from "@angular/material/input";
+import { MatOption, MatSelect } from "@angular/material/select";
+import { MatIcon } from "@angular/material/icon";
+import { DayEvents } from "../spectacles/spectacles.component";
+import { DataService } from "../../shared/core/data.service";
+import { DaysSelectComponent } from "../../shared/core/days-select/days-select.component";
 
 @Component({
   selector: 'app-new-experience',
@@ -51,7 +51,7 @@ export class NewExperienceComponent {
 
   onSubmit() {
     if (this.experienceForm.valid && this.selectedDay.value) {
-      const {time, title, subtitle, location, image_url, duration} = this.experienceForm.value;
+      const { time, title, subtitle, location, image_url, duration } = this.experienceForm.value;
 
       let newExperience = {
         time: [time],

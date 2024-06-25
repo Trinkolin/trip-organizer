@@ -1,5 +1,5 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {DatePipe, JsonPipe, KeyValuePipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { DatePipe, JsonPipe, KeyValuePipe, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import {
   MatCell,
   MatColumnDef,
@@ -9,10 +9,10 @@ import {
   MatTable,
   MatTableModule
 } from "@angular/material/table";
-import {MatCardModule} from "@angular/material/card";
-import {ItineraryService} from "./itinerary.service";
-import {InfoDayComponent} from "./info-day/info-day.component";
-import {DayEvents} from "../spectacles/spectacles.component";
+import { MatCardModule } from "@angular/material/card";
+import { ItineraryService } from "./itinerary.service";
+import { InfoDayComponent } from "./info-day/info-day.component";
+import { DayEvents } from "../spectacles/spectacles.component";
 
 @Component({
   selector: 'app-itinerary',
@@ -20,7 +20,6 @@ import {DayEvents} from "../spectacles/spectacles.component";
   imports: [DatePipe, MatHeaderCell, MatCell, MatHeaderRow, MatRow, MatTable, MatColumnDef, MatTableModule,
     MatCardModule, NgForOf, NgOptimizedImage, NgIf, InfoDayComponent, JsonPipe, KeyValuePipe,],
   templateUrl: './itinerary.component.html',
-  styleUrl: './itinerary.component.css'
 })
 export class ItineraryComponent implements OnInit {
   itineraryService = inject(ItineraryService);

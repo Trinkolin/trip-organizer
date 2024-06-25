@@ -1,8 +1,8 @@
-import {DataService} from '../../shared/core/data.service';
-import {inject, Injectable} from '@angular/core';
+import { DataService } from '../../shared/core/data.service';
+import { inject, Injectable } from '@angular/core';
 
 export type TripDetail = {
-  name: String;
+  name: string;
   checkInDate: Date;
   checkOutDate: Date;
 };
@@ -22,6 +22,6 @@ export class TripService {
   }
 
   isFilled(tripDetail: TripDetail | undefined): boolean {
-    return (tripDetail !== null && tripDetail !== undefined);
+    return tripDetail !== null && tripDetail !== undefined;
   }
 }

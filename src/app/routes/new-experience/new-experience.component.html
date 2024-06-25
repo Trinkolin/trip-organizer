@@ -3,42 +3,41 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="experienceForm" class="flex flex-col">
     <mat-form-field class="w-64">
       <mat-label>Title</mat-label>
-      <input formControlName="title" matInput required/>
+      <input formControlName="title" matInput required />
 
       <mat-error></mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-64">
       <mat-label>Subtitle</mat-label>
-      <input formControlName="subtitle" matInput/>
+      <input formControlName="subtitle" matInput />
     </mat-form-field>
 
     <app-days-select [selectedDay]="selectedDay" style="width:256px !important"></app-days-select>
 
     <mat-form-field class="w-64">
       <mat-label>Time</mat-label>
-      <input formControlName="time" matInput required type="time"/>
+      <input formControlName="time" matInput required type="time" />
     </mat-form-field>
 
     <mat-form-field class="w-64">
       <mat-label>
         <mat-icon>schedule</mat-icon>
         <strong> Duration </strong> <em> minutes</em></mat-label>
-      <input formControlName="duration" matInput type="number"/>
+      <input formControlName="duration" matInput type="number" />
     </mat-form-field>
 
     <mat-form-field class="w-64">
       <mat-label>Location</mat-label>
-      <input formControlName="location" matInput required/>
+      <input formControlName="location" matInput required />
     </mat-form-field>
 
     <mat-form-field class="w-64">
       <mat-label>Image URL</mat-label>
-      <input formControlName="image_url" matInput/>
+      <input formControlName="image_url" matInput />
     </mat-form-field>
 
     <button class="w-64" color="primary" mat-raised-button type="submit">Create Spectacle</button>
   </form>
 
 </mat-card>
-

@@ -1,93 +1,75 @@
 @if (formFilled) {
-  <mat-card appearance="outlined" class="p-4">
-    <app-trip-detail [nameValue]="tripDetail.name"
-                     [beginDateValue]="tripDetail.checkInDate"
-                     [endDateValue]="tripDetail.checkOutDate"></app-trip-detail>
-  </mat-card>
+<mat-card appearance="outlined" class="p-4">
+  <app-trip-detail [nameValue]="tripDetail.name" [beginDateValue]="tripDetail.checkInDate"
+    [endDateValue]="tripDetail.checkOutDate"></app-trip-detail>
+</mat-card>
 } @else {
-  <mat-stepper #stepper>
-    <mat-step label="Pick your dates" [stepControl]="periodFormGroup" state="calendar_month">
-      <form [formGroup]="periodFormGroup">
+<mat-stepper #stepper>
+  <mat-step label="Pick your dates" [stepControl]="periodFormGroup" state="calendar_month">
+    <form [formGroup]="periodFormGroup">
 
-        <mat-form-field>
-          <mat-label>Pick your dates</mat-label>
-          <mat-date-range-input
-            [formGroup]="periodFormGroup"
-            [rangePicker]="picker"
-          >
-            <input
-              matStartDate
-              formControlName="beginDateCtrl"
-              placeholder="Start date"
-              required
-            />
-            <input
-              matEndDate
-              formControlName="endDateCtrl"
-              placeholder="End date"
-              required
-            />
-          </mat-date-range-input>
-          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
+      <mat-form-field>
+        <mat-label>Pick your dates</mat-label>
+        <mat-date-range-input [formGroup]="periodFormGroup" [rangePicker]="picker">
+          <input matStartDate formControlName="beginDateCtrl" placeholder="Start date" required />
+          <input matEndDate formControlName="endDateCtrl" placeholder="End date" required />
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
 
-          @if (periodFormGroup.controls['beginDateCtrl'].hasError('matStartDateInvalid')) {
-            <mat-error>Invalid start date</mat-error>
+        @if (periodFormGroup.controls['beginDateCtrl'].hasError('matStartDateInvalid')) {
+        <mat-error>Invalid start date</mat-error>
+        }
+        @if (periodFormGroup.controls['endDateCtrl'].hasError('matEndDateInvalid')) {
+        <mat-error>Invalid end date</mat-error>
+        }
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="hotelFormGroup" label="Hotels & Resorts" state="hotel">
+
+    <form [formGroup]="hotelFormGroup">
+      <mat-form-field>
+        <mat-label>Chosen Hotel</mat-label>
+        <mat-select formControlName="nameCtrl" required>
+          <mat-option value="">--</mat-option>
+          @for (hotel of hotels; track hotel) {
+          <mat-option [value]="hotel">{{ hotel }}</mat-option>
           }
-          @if (periodFormGroup.controls['endDateCtrl'].hasError('matEndDateInvalid')) {
-            <mat-error>Invalid end date</mat-error>
-          }
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <mat-step [stepControl]="hotelFormGroup" label="Hotels & Resorts" state="hotel">
-
-      <form [formGroup]="hotelFormGroup">
-        <mat-form-field>
-          <mat-label>Chosen Hotel</mat-label>
-          <mat-select formControlName="nameCtrl" required>
-            <mat-option value="">--</mat-option>
-            @for (hotel of hotels; track hotel) {
-              <mat-option [value]="hotel">{{ hotel }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-
-      <app-trip-detail [nameValue]="nameValue"
-                       [beginDateValue]="beginDateValue"
-                       [endDateValue]="endDateValue"></app-trip-detail>
+        </mat-select>
+      </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="validateTrip()">Validate</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
-    </mat-step>
-    <ng-template matStepperIcon="calendar_month">
-      <mat-icon>calendar_month</mat-icon>
-    </ng-template>
-    <ng-template matStepperIcon="hotel">
-      <mat-icon>hotel</mat-icon>
-    </ng-template>
-  </mat-stepper>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+
+    <app-trip-detail [nameValue]="nameValue" [beginDateValue]="beginDateValue"
+      [endDateValue]="endDateValue"></app-trip-detail>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="validateTrip()">Validate</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <ng-template matStepperIcon="calendar_month">
+    <mat-icon>calendar_month</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="hotel">
+    <mat-icon>hotel</mat-icon>
+  </ng-template>
+</mat-stepper>
 }
 
 @if (this.formFilled) {
-  <button mat-button (click)="modifyTrip()">Modify reservation</button>
+<button mat-button (click)="modifyTrip()">Modify reservation</button>
 }

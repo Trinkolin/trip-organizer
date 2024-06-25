@@ -1,4 +1,4 @@
-import {Component, inject, input, OnInit} from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import {
   MatCell,
   MatColumnDef,
@@ -9,11 +9,21 @@ import {
   MatTableDataSource,
   MatTableModule,
 } from '@angular/material/table';
-import {Experience, ExperienceService} from '../../../shared/experience.service';
-import {DatePipe, JsonPipe, KeyValuePipe, NgForOf, NgIf, NgOptimizedImage,} from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
-import {DateRangeService} from '../../../shared/daterange.service';
-import {MatIcon} from "@angular/material/icon";
+import {
+  Experience,
+  ExperienceService,
+} from '../../../shared/experience.service';
+import {
+  DatePipe,
+  JsonPipe,
+  KeyValuePipe,
+  NgForOf,
+  NgIf,
+  NgOptimizedImage,
+} from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { DateRangeService } from '../../../shared/daterange.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-info-day',
@@ -44,7 +54,14 @@ import {MatIcon} from "@angular/material/icon";
   templateUrl: './info-day.component.html',
 })
 export class InfoDayComponent implements OnInit {
-  displayedColumns: string[] = ['time', 'title', 'image', 'location', 'duration', 'remove'];
+  displayedColumns: string[] = [
+    'time',
+    'title',
+    'image',
+    'location',
+    'duration',
+    'remove',
+  ];
 
   dataSource!: MatTableDataSource<Experience>;
 
@@ -69,7 +86,6 @@ export class InfoDayComponent implements OnInit {
   removeSpectacle(spectacle: Experience) {
     let strings = spectacle.time;
     this.experienceService.remove(spectacle, this.key(), strings);
-    this.dataSource.data = this.dataSource.data.filter(s => s !== spectacle);
+    this.dataSource.data = this.dataSource.data.filter((s) => s !== spectacle);
   }
 }
-

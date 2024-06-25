@@ -1,19 +1,28 @@
-import {Component, inject} from '@angular/core';
-import {TripService} from './trip.service';
-import {DatePipe, JsonPipe} from '@angular/common';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatInputModule} from '@angular/material/input';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
+import { Component, inject } from '@angular/core';
+import { TripService } from './trip.service';
+import { DatePipe, JsonPipe } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {TripDetailComponent} from "./trip-detail/trip-detail.component";
-import {MatCard, MatCardActions, MatCardContent} from "@angular/material/card";
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { TripDetailComponent } from './trip-detail/trip-detail.component';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+} from '@angular/material/card';
 
 @Component({
   selector: 'app-trip',
@@ -39,8 +48,9 @@ import {MatCard, MatCardActions, MatCardContent} from "@angular/material/card";
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {displayDefaultIndicatorType: false},
-    }, provideNativeDateAdapter()
+      useValue: { displayDefaultIndicatorType: false },
+    },
+    provideNativeDateAdapter(),
   ],
   templateUrl: './trip.component.html',
   styleUrl: 'trip.component.css',
@@ -56,12 +66,16 @@ export class TripComponent {
 
   hotels = ['Sequoia Lodge'];
 
-  constructor(
-    private _formBuilder: FormBuilder,
-  ) {
+  constructor(private _formBuilder: FormBuilder) {
     this.periodFormGroup = this._formBuilder.group({
-      beginDateCtrl: [this.tripDetail?.checkInDate ?? new Date(), Validators.required],
-      endDateCtrl: [this.tripDetail?.checkOutDate ?? new Date(), Validators.required],
+      beginDateCtrl: [
+        this.tripDetail?.checkInDate ?? new Date(),
+        Validators.required,
+      ],
+      endDateCtrl: [
+        this.tripDetail?.checkOutDate ?? new Date(),
+        Validators.required,
+      ],
     });
 
     this.hotelFormGroup = this._formBuilder.group({
@@ -98,5 +112,4 @@ export class TripComponent {
   modifyTrip() {
     this.formFilled = false;
   }
-
 }

@@ -1,30 +1,15 @@
 <mat-card class="flex flex-col gap-4" raised>
   <mat-card-header>
-    <div mat-card-avatar>
-      @if (spectacle().location === DLP) {
-        <img
-          width="48"
-          height="48"
-          ngSrc="/assets/images/Disneyland_Park_tcm808-199719.svg"
-        />
-      } @else {
-        <img
-          width="48"
-          height="48"
-          ngSrc="/assets/images/Walt_Disney_Studios_Park_tcm808-199730.svg"
-        />
-      }
-    </div>
     <mat-card-title>
       {{ spectacle().title | truncate : 30 }}
     </mat-card-title>
     <mat-card-subtitle>
       @if (spectacle().subtitle) {
-        {{
-          (spectacle().subtitle! | truncate : 30)
-        }}
+      {{
+      (spectacle().subtitle! | truncate : 30)
+      }}
       } @else {
-        {{ "&nbsp;" }}
+      {{ "&nbsp;" }}
       }
     </mat-card-subtitle>
   </mat-card-header>
@@ -36,35 +21,30 @@
           {{ spectacle().location }}
         </mat-chip>
         @if (spectacle().duration) {
-          <mat-chip class="w-full md:w-1/2">
-            <mat-icon matChipTrailingIcon>schedule</mat-icon>
-            {{ spectacle().duration }} min
-          </mat-chip>
+        <mat-chip class="w-full md:w-1/2">
+          <mat-icon matChipTrailingIcon>schedule</mat-icon>
+          {{ spectacle().duration }} min
+        </mat-chip>
         }
       </div>
-      <img
-        class="rounded-lg w-full "
-        src="{{ spectacle().image_url }}"
-      /></div>
+    </div>
   </mat-card-content>
 
   <mat-card-actions>
     <div class="flex flex-col w-full gap-4">
       <div class="flex items-center justify-center">
-        <mat-button-toggle-group [formControl]="timeCtrl"
-                                 multiple
-                                 [hideMultipleSelectionIndicator]="true"
-        >
+        <mat-button-toggle-group [formControl]="timeCtrl" multiple [hideMultipleSelectionIndicator]="true">
 
           @for (time of spectacle().time; track time) {
-            <mat-button-toggle value="{{ time }}">{{
-                time
-              }}
-            </mat-button-toggle>
+          <mat-button-toggle value="{{ time }}">{{
+            time
+            }}
+          </mat-button-toggle>
           }
         </mat-button-toggle-group>
       </div>
 
+      @if (selectedDay!.value ){
       <app-days-select [selectedDay]="selectedDay"></app-days-select>
 
       <div class="flex flex-row w-full gap-x-4">
@@ -72,15 +52,12 @@
           <mat-icon>add</mat-icon>
           Add
         </button>
-        <button
-          (click)="remove(spectacle())"
-          class="w-full md:w-1/2"
-          mat-flat-button
-        >
+        <button (click)="remove(spectacle())" class="w-full md:w-1/2" mat-flat-button>
           <mat-icon>remove</mat-icon>
           Remove
         </button>
       </div>
+      }
     </div>
 
   </mat-card-actions>

@@ -1,8 +1,7 @@
-import {inject, Injectable} from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import spectaclesJson from '../../assets/json/spectacles.json';
-import {DayEvents} from "../routes/spectacles/spectacles.component";
-import {DataService} from "./core/data.service";
-
+import { DayEvents } from '../routes/spectacles/spectacles.component';
+import { DataService } from './core/data.service';
 
 export type Experience = {
   time: string[];
@@ -20,7 +19,6 @@ export const WDS = 'Walt Disney Studios';
   providedIn: 'root',
 })
 export class ExperienceService {
-
   dayEvents: DayEvents = inject(DataService).getData('dayEvents') ?? {};
 
   spectacles: Experience[] = spectaclesJson;
@@ -32,9 +30,9 @@ export class ExperienceService {
   }
 
   getExperiencesByLocation(location: string): string[] {
-    return this.getSpectacles().filter(
-      (experience) => experience.location === location
-    ).map(spectacle => spectacle.title);
+    return this.getSpectacles()
+      .filter((experience) => experience.location === location)
+      .map((spectacle) => spectacle.title);
   }
 
   isParkSelected(park: string, selectedPark: string[] | null): boolean {
@@ -50,11 +48,18 @@ export class ExperienceService {
     return false;
   }
 
-  isSpectacleSelected(spectacle: Experience, selectedSpectacles: string[] | null): boolean {
+  isSpectacleSelected(
+    spectacle: Experience,
+    selectedSpectacles: string[] | null
+  ): boolean {
     return (selectedSpectacles || []).includes(spectacle.title);
   }
 
-  addExperience(experience: Experience, dayValue: string, timeValue: string[]): boolean {
+  addExperience(
+    experience: Experience,
+    dayValue: string,
+    timeValue: string[]
+  ): boolean {
     let modified = false;
 
     if (experience) {
@@ -65,7 +70,7 @@ export class ExperienceService {
       const eventIndex = this.extracted(dayValue, experience);
 
       if (eventIndex === -1) {
-        const shallowCopy = {...experience};
+        const shallowCopy = { ...experience };
         shallowCopy.time = timeValue;
         this.dayEvents[dayValue].push(shallowCopy);
         modified = true;
@@ -75,7 +80,7 @@ export class ExperienceService {
 
         if (timesToAdd.length > 0) {
           for (let t of timesToAdd) {
-            const shallowCopy = {...experience};
+            const shallowCopy = { ...experience };
             shallowCopy.time = [t];
             this.dayEvents[dayValue].push(shallowCopy);
           }
@@ -83,13 +88,19 @@ export class ExperienceService {
         }
       }
 
-      this.dayEvents[dayValue].sort((a, b) => a.time[0].localeCompare(b.time[0]));
+      this.dayEvents[dayValue].sort((a, b) =>
+        a.time[0].localeCompare(b.time[0])
+      );
     }
 
     return modified;
   }
 
-  add(experience: Experience, dayValue: string | null, timeValue: string[]): void {
+  add(
+    experience: Experience,
+    dayValue: string | null,
+    timeValue: string[]
+  ): void {
     if (dayValue && timeValue.length > 0) {
       let modified = this.addExperience(experience, dayValue, timeValue);
       if (modified) {
@@ -99,7 +110,11 @@ export class ExperienceService {
     }
   }
 
-  removeExperience(experience: Experience, dayValue: string, timeValue: string[]): boolean {
+  removeExperience(
+    experience: Experience,
+    dayValue: string,
+    timeValue: string[]
+  ): boolean {
     let modified = false;
 
     if (experience && this.dayEvents[dayValue]) {
@@ -107,7 +122,9 @@ export class ExperienceService {
 
       if (eventIndex !== -1) {
         const existingEvent = this.dayEvents[dayValue][eventIndex];
-        const remainingTimes = existingEvent.time.filter(time => !timeValue.includes(time));
+        const remainingTimes = existingEvent.time.filter(
+          (time) => !timeValue.includes(time)
+        );
 
         if (remainingTimes.length > 0) {
           this.dayEvents[dayValue][eventIndex].time = remainingTimes;
@@ -126,7 +143,7 @@ export class ExperienceService {
     return modified;
   }
 
-  remove(experience: Experience, dayValue: string, timeValue: string[]): void {
+  remove(experience: Experience, dayValue: string | null, timeValue: string[]): void {
     if (dayValue && timeValue.length > 0) {
       let modified = this.removeExperience(experience, dayValue, timeValue);
       if (modified) {
@@ -137,15 +154,14 @@ export class ExperienceService {
   }
 
   private extracted(dayValue: string, experience: Experience): number {
-    return this.dayEvents[dayValue].findIndex(event => event.title === experience.title);
+    return this.dayEvents[dayValue].findIndex(
+      (event) => event.title === experience.title
+    );
   }
 
   private getTimesToAdd(existingTimes: string[], newTimes: string[]): string[] {
     const existingTimesSet = new Set(existingTimes);
-    const timesToAdd = newTimes.filter(time => !existingTimesSet.has(time));
+    const timesToAdd = newTimes.filter((time) => !existingTimesSet.has(time));
     return timesToAdd.sort((a, b) => a.localeCompare(b));
   }
-
-
-
 }
