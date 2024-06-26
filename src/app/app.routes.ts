@@ -6,7 +6,7 @@ import {GeneralInfoComponent} from "./routes/general-info/general-info.component
 import {NewExperienceComponent} from "./routes/new-experience/new-experience.component";
 
 export const routes: Routes = [
-  {path: '', component: TripComponent, title: 'Trip info', },
+  {path: '', component: TripComponent, title: 'Trip info',},
   {path: 'itinerary', component: ItineraryComponent, title: 'Itinerary',},
   {path: 'trip', component: TripComponent, title: 'Trip',},
   {path: 'spectacles', component: SpectaclesComponent, title: 'Spectacles',},

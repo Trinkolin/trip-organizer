@@ -1,11 +1,11 @@
-import { Component, input } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { MatCard, MatCardContent } from '@angular/material/card';
+import {Component, input} from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-trip-detail',
   standalone: true,
-  imports: [DatePipe, MatCard, MatCardContent],
+  imports: [DatePipe, MatCardModule],
   templateUrl: './trip-detail.component.html',
 })
 export class TripDetailComponent {

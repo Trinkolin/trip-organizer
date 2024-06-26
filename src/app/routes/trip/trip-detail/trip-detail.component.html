@@ -3,19 +3,19 @@
 </h3>
 
 @if (nameValue()) {
-<p> {{ nameValue() }}</p>
+  <p> {{ nameValue() }}</p>
 }
 <h3>
   Check-in date
 </h3>
 
 @if (beginDateValue()) {
-<p> {{ beginDateValue() | date : "EEEE, MMMM d, y" }}</p>
+  <p> {{ beginDateValue() | date : "EEEE, MMMM d, y" }}</p>
 }
 <h3>
   Check-out date
 </h3>
 
 @if (endDateValue()) {
-<p> {{ endDateValue() | date : "EEEE, MMMM d, y" }}</p>
+  <p> {{ endDateValue() | date : "EEEE, MMMM d, y" }}</p>
 }

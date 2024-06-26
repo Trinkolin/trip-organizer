@@ -8,7 +8,7 @@ import {ExperienceService} from "./experience.service";
 export class SelectedParkPipe implements PipeTransform {
   spectaclesService = inject(ExperienceService)
 
-  transform(selectedParks: string[] | null, park: string): boolean {
+  transform(selectedParks: string[] | null, park: string) {
     return this.spectaclesService.isParkSelected(park, selectedParks ?? []);
   }
 

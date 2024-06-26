@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { MatList, MatListItem } from '@angular/material/list';
+import {Component} from '@angular/core';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-general-info',
   standalone: true,
-  imports: [MatList, MatListItem],
+  imports: [MatListModule],
   templateUrl: './general-info.component.html',
 })
-export class GeneralInfoComponent { }
+export class GeneralInfoComponent {
+}

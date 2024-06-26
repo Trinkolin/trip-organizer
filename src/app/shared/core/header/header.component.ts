@@ -1,18 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { FooterComponent } from '../footer/footer.component';
-import { MatIcon } from "@angular/material/icon";
-import { MatMenu, MatMenuItem, MatMenuTrigger } from "@angular/material/menu";
-import { MatToolbar } from "@angular/material/toolbar";
-import { MatCard, MatCardContent } from "@angular/material/card";
-import { MatDivider } from "@angular/material/divider";
-import { MatAnchor, MatButton, MatFabButton, MatIconButton, MatMiniFabButton } from "@angular/material/button";
+import {CommonModule} from '@angular/common';
+import {Component} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {FooterComponent} from '../footer/footer.component';
+import {MatIcon} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatCardModule} from "@angular/material/card";
+import {MatDivider} from "@angular/material/divider";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatIcon, MatMenu, MatToolbar, MatMenuTrigger, MatMenuItem, MatCard, MatCardContent, MatDivider, MatMiniFabButton, MatFabButton, MatIconButton, MatButton, MatAnchor],
+  imports: [RouterModule, FooterComponent, CommonModule, MatIcon, MatMenuModule, MatToolbar,
+    MatCardModule, MatDivider],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {

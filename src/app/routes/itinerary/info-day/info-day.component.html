@@ -12,13 +12,6 @@
         <td *matCellDef="let spectacle" mat-cell>{{ spectacle.title }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="image">
-        <th *matHeaderCellDef mat-header-cell>Image</th>
-        <td *matCellDef="let spectacle" mat-cell>
-          <img [src]="spectacle.image_url" width="50" />
-        </td>
-      </ng-container>
-
       <ng-container matColumnDef="location">
         <th *matHeaderCellDef mat-header-cell>Parc</th>
         <td *matCellDef="let spectacle" mat-cell>{{ spectacle.location }}</td>
@@ -34,7 +27,7 @@
       <ng-container matColumnDef="remove">
         <th *matHeaderCellDef mat-header-cell>Remove</th>
         <td *matCellDef="let spectacle" mat-cell>
-          <button mat-icon-button color="warn" (click)="removeSpectacle(spectacle)">
+          <button (click)="remove(spectacle)" color="warn" mat-icon-button>
             <mat-icon>delete</mat-icon>
           </button>
         </td>

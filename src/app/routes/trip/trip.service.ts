@@ -1,5 +1,5 @@
-import { DataService } from '../../shared/core/data.service';
-import { inject, Injectable } from '@angular/core';
+import {DataService} from '../../shared/core/data.service';
+import {inject, Injectable} from '@angular/core';
 
 export type TripDetail = {
   name: string;

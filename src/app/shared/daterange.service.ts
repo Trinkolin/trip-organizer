@@ -1,7 +1,7 @@
-import { inject, Injectable } from '@angular/core';
-import { TripService } from '../routes/trip/trip.service';
+import {inject, Injectable} from '@angular/core';
+import {TripService} from '../routes/trip/trip.service';
 
-type DaySelectItem = { value: string; viewValue: Date };
+export type DaySelectItem = { value: string; viewValue: Date };
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class DateRangeService {
   checkOutDate?: Date;
 
   createDateRange(): Date[] {
-    let dates = [];
+    let dates: Date[] = [];
 
     if (this.hotelService.getTripDetail()) {
       this.checkInDate = this.hotelService.getTripDetail().checkInDate;
@@ -25,16 +25,12 @@ export class DateRangeService {
 
         let currentDate = new Date(startDate);
 
-        let i = 1;
-
-        // Convert startDate and endDate to only date (remove time part)
         currentDate.setHours(0, 0, 0, 0);
         endDate.setHours(0, 0, 0, 0);
 
         while (currentDate <= endDate) {
           dates.push(new Date(currentDate));
           currentDate.setDate(currentDate.getDate() + 1);
-          i++;
         }
       }
     }

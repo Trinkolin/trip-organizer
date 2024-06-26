@@ -1,4 +1,6 @@
 @if (itinerary) {
-<app-info-day *ngFor="let option of itinerary | keyvalue" [list]="option.value" [key]="option.key">
-</app-info-day>
+  @for (option of itinerary | keyvalue; track option) {
+    <app-info-day [list]="option.value" [key]="option.key">
+    </app-info-day>
+  }
 }

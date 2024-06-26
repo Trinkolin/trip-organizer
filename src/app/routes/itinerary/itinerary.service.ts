@@ -1,6 +1,5 @@
-import { inject, Injectable } from '@angular/core';
-import { DataService } from "../../shared/core/data.service";
-import { DayEvents } from "../spectacles/spectacles.component";
+import {inject, Injectable} from '@angular/core';
+import {DataService} from "../../shared/core/data.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ export class ItineraryService {
 
   dataService = inject(DataService);
 
-  getItinerary(): DayEvents {
+  getItinerary() {
     return this.dataService.getData('dayEvents');
   }
 }

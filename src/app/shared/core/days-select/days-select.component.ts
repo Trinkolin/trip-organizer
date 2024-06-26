@@ -1,20 +1,18 @@
-import { Component, inject, input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatOption, MatSelect } from '@angular/material/select';
-import { DateRangeService } from '../../daterange.service';
-import { DatePipe } from '@angular/common';
+import {Component, inject, input} from '@angular/core';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {DateRangeService} from '../../daterange.service';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-days-select',
   standalone: true,
   imports: [
-    MatFormField,
-    MatSelect,
+    MatFormFieldModule,
+    MatSelectModule,
     ReactiveFormsModule,
-    MatOption,
-    DatePipe,
-    MatLabel,
+    CommonModule,
   ],
   templateUrl: './days-select.component.html',
 })
@@ -23,9 +21,6 @@ export class DaysSelectComponent {
 
   dateRangeService = inject(DateRangeService);
 
-  days: any[];
+  days = this.dateRangeService.createDaysSelectItems() ?? [];
 
-  constructor() {
-    this.days = this.dateRangeService.createDaysSelectItems() ?? [];
-  }
 }

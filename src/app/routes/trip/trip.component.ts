@@ -1,37 +1,26 @@
-import { Component, inject } from '@angular/core';
-import { TripService } from './trip.service';
-import { DatePipe, JsonPipe } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import {
-  FormBuilder,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatInputModule } from '@angular/material/input';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
+import {Component, inject} from '@angular/core';
+import {TripService} from './trip.service';
+import {CommonModule} from '@angular/common';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {FormBuilder, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { TripDetailComponent } from './trip-detail/trip-detail.component';
-import {
-  MatCard,
-  MatCardActions,
-  MatCardContent,
-} from '@angular/material/card';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {TripDetailComponent} from './trip-detail/trip-detail.component';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-trip',
   standalone: true,
   imports: [
-    DatePipe,
+    CommonModule,
     MatDatepickerModule,
-    JsonPipe,
-    MatIcon,
     MatSelectModule,
     MatStepperModule,
     FormsModule,
@@ -41,14 +30,12 @@ import {
     MatButtonModule,
     MatIconModule,
     TripDetailComponent,
-    MatCard,
-    MatCardContent,
-    MatCardActions,
+    MatCardModule,
   ],
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { displayDefaultIndicatorType: false },
+      useValue: {displayDefaultIndicatorType: false},
     },
     provideNativeDateAdapter(),
   ],
