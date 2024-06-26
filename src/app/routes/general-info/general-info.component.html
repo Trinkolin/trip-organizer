@@ -1,7 +1,27 @@
-<mat-list role="list">
-  <mat-list-item role="listitem">Ouverture de DLP : (8)9h30 - 23h00</mat-list-item>
-  <mat-list-item role="listitem">Ouverture de WDS : (8)9h30 - 21h00</mat-list-item>
-  <mat-list-item role="listitem">Breakfast : 7:00 - 10:30</mat-list-item>
-  <mat-list-item role="listitem">Soft drinks : 12:00 - 10:30</mat-list-item>
-  <mat-list-item role="listitem">Tea time : 16:00 - 18:00</mat-list-item>
-</mat-list>
+<div class="flex flex-col lg:flex-row gap-y-4 lg:gap-x-4 m-4 p-4">
+  <mat-card class="flex w-full lg:w-1/2">
+    <mat-card-header>
+      <mat-card-title>Park Opening Hours</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>DLP with extra magic hour</strong></p>
+      <p><span>8:30 - 23:00</span></p>
+      <p><strong>WDS with extra magic hour</strong></p>
+      <p><span>8:30 - 21:00</span></p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="flex  w-full lg:w-1/2">
+    <mat-card-header>
+      <mat-card-title>Food and Beverage</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Breakfast</strong></p>
+      <p><span>7:00 - 10:30</span></p>
+      <p><strong>Soft drinks</strong></p>
+      <p><span>12:00 - 10:30</span></p>
+      <p><strong>Tea time</strong></p>
+      <p><span>16:00 - 18:00</span></p>
+    </mat-card-content>
+  </mat-card>
+</div>
