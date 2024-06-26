@@ -51,7 +51,7 @@ export class TripComponent {
   periodFormGroup;
   hotelFormGroup;
 
-  hotels = ['Sequoia Lodge'];
+  hotels = ['Disneyland Hotel', 'New York Hotel', 'Newport Bay Club', 'Sequoia Lodge', 'Cheyenne', 'Santa Fe'];
 
   constructor(private _formBuilder: FormBuilder) {
     this.periodFormGroup = this._formBuilder.group({

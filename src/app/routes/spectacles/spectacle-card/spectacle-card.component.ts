@@ -35,9 +35,6 @@ import {DaysSelectComponent} from '../../../shared/core/days-select/days-select.
 })
 export class SpectacleCardComponent {
 
-
-
-
   experienceService = inject(ExperienceService);
 
   spectacle = input.required<Experience>();

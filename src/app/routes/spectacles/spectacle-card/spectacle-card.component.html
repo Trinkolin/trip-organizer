@@ -1,5 +1,13 @@
 <mat-card class="flex flex-col gap-4" raised>
   <mat-card-header>
+    <div mat-card-avatar >
+      @if (spectacle().location === DLP) {
+      <mat-icon fontIcon="castle">castle</mat-icon>
+      }
+      @else {
+      <mat-icon fontIcon="movie">movie</mat-icon>
+      }
+    </div>
     <mat-card-title>
       {{ spectacle().title | truncate : 30 }}
     </mat-card-title>
