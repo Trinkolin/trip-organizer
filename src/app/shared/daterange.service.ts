@@ -15,24 +15,29 @@ export class DateRangeService {
   createDateRange(): Date[] {
     let dates: Date[] = [];
 
-    if (this.hotelService.getTripDetail()) {
-      this.checkInDate = this.hotelService.getTripDetail().checkInDate;
-      this.checkOutDate = this.hotelService.getTripDetail().checkOutDate;
+    const tripDetail = this.hotelService.getTripDetail();
+    if (!tripDetail) {
+      return dates;
+    }
 
-      if (this.checkInDate && this.checkOutDate) {
-        let startDate = new Date(this.checkInDate);
-        let endDate = new Date(this.checkOutDate);
+    this.checkInDate = tripDetail.checkInDate;
+    this.checkOutDate = tripDetail.checkOutDate;
 
-        let currentDate = new Date(startDate);
+    if (!this.checkInDate || !this.checkOutDate) {
+      return dates;
+    }
 
-        currentDate.setHours(0, 0, 0, 0);
-        endDate.setHours(0, 0, 0, 0);
+    let startDate = new Date(this.checkInDate);
+    let endDate = new Date(this.checkOutDate);
 
-        while (currentDate <= endDate) {
-          dates.push(new Date(currentDate));
-          currentDate.setDate(currentDate.getDate() + 1);
-        }
-      }
+    let currentDate = new Date(startDate);
+
+    currentDate.setHours(0, 0, 0, 0);
+    endDate.setHours(0, 0, 0, 0);
+
+    while (currentDate <= endDate) {
+      dates.push(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
     }
     return dates;
   }

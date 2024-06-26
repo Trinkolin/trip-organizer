@@ -1,4 +1,4 @@
-import {Component, inject, input} from '@angular/core';
+import {Component, ElementRef, inject, input, ViewChild} from '@angular/core';
 import {DLP, Experience, ExperienceService,} from '../../../shared/experience.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
@@ -34,6 +34,10 @@ import {DaysSelectComponent} from '../../../shared/core/days-select/days-select.
   templateUrl: './spectacle-card.component.html',
 })
 export class SpectacleCardComponent {
+
+
+
+
   experienceService = inject(ExperienceService);
 
   spectacle = input.required<Experience>();

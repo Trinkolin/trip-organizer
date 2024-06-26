@@ -13,12 +13,12 @@
       </ng-container>
 
       <ng-container matColumnDef="location">
-        <th *matHeaderCellDef mat-header-cell>Parc</th>
+        <th *matHeaderCellDef mat-header-cell>Place</th>
         <td *matCellDef="let spectacle" mat-cell>{{ spectacle.location }}</td>
       </ng-container>
 
       <ng-container matColumnDef="duration">
-        <th *matHeaderCellDef mat-header-cell>Duration (min)</th>
+        <th *matHeaderCellDef mat-header-cell>Duration</th>
         <td *matCellDef="let spectacle" mat-cell>
           {{ spectacle.duration ?? "." }}
         </td>
