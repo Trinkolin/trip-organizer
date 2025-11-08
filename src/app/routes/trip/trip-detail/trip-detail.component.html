@@ -1,24 +1,25 @@
 <section>
-  <h3>
-    Hotel & resorts
+  <h3 class="text-xl font-semibold text-red-700 border-b-2 border-red-300 pb-1 mb-2">
+    Hotel & Resorts
   </h3>
 
   @if (nameValue()) {
-    <p> {{ nameValue() }}</p>
+    <p class="text-gray-800">{{ nameValue() }}</p>
   }
-  <h3>
-    Check-in date
+
+  <h3 class="text-xl font-semibold text-green-700 border-b-2 border-green-300 pb-1 mb-2 mt-4">
+    Check-in Date
   </h3>
 
   @if (beginDateValue()) {
-    <p> {{ beginDateValue() | date : "EEEE, MMMM d, y" }}</p>
+    <p class="text-gray-800">{{ beginDateValue() | date : "EEEE, MMMM d, y" }}</p>
   }
-  <h3>
-    Check-out date
+
+  <h3 class="text-xl font-semibold text-blue-700 border-b-2 border-blue-300 pb-1 mb-2 mt-4">
+    Check-out Date
   </h3>
 
   @if (endDateValue()) {
-    <p> {{ endDateValue() | date : "EEEE, MMMM d, y" }}</p>
+    <p class="text-gray-800">{{ endDateValue() | date : "EEEE, MMMM d, y" }}</p>
   }
-
 </section>

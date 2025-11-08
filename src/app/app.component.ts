@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {FooterComponent} from "./shared/core/footer/footer.component";
 import {HeaderComponent} from "./shared/core/header/header.component";
 
 
@@ -8,7 +7,7 @@ import {HeaderComponent} from "./shared/core/header/header.component";
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterModule, FooterComponent, HeaderComponent]
+    imports: [RouterModule, HeaderComponent]
 })
 export class AppComponent {
   title = 'trip-organizer';

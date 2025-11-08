@@ -1,105 +1,103 @@
 [
   {
     "time": [
-      "14:00",
-      "15:25",
-      "17:50",
-      "19:05"
+      "09:05",
+      "09:55",
+      "10:45",
+      "11:35",
+      "13:50",
+      "14:45"
     ],
-    "title": "A Million Splashes of Colour*",
-    "image_url": "/trip-organizer/assets/images/splashes.jpg",
+    "title": "Le Partage Gourmand de la Mère Noël",
     "location": "Disneyland Park",
-    "duration": 33
-  },
-  {
-    "time": [
-      "11:30"
-    ],
-    "title": "Stars on Parade",
-    "image_url": "/trip-organizer/assets/images/starsonparade.jpg",
-    "location": "Disneyland Park",
-    "duration": 33
-  },
-  {
-    "time": [
-      "14:00",
-      "15:05",
-      "16:10",
-      "18:25",
-      "19:30"
-    ],
-    "title": "Mickey et le Magicien",
-    "image_url": "/trip-organizer/assets/images/mickeyandmagician.jpg",
-    "location": "Walt Disney Studios",
-    "duration": 30
-  },
-  {
-    "time": [
-      "14:40",
-      "17:35",
-      "19:00"
-    ],
-    "title": "Alice et la Reine de Cœur",
-    "subtitle": "Retour au Pays des Merveilles",
-    "image_url": "/trip-organizer/assets/images/aliceinwonderland.jpg",
-    "location": "Walt Disney Studios",
-    "duration": 30
-  },
-  {
-    "time": [
-      "12:35",
-      "13:30",
-      "14:20",
-      "16:40",
-      "17:35"
-    ],
-    "title": "La Fabrique des Rêves de Disney Junior",
-    "image_url": "/trip-organizer/assets/images/disneyjunior.jpg",
-    "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/motherchristmas.jpg",
     "duration": 20
   },
   {
     "time": [
-      "12:30",
-      "13:30",
-      "16:05",
-      "17:05"
+      "15:55",
+      "17:45"
     ],
-    "title": "Le Roi Lion et les Rythmes de la Terre",
-    "image_url": "/trip-organizer/assets/images/lionking.png",
+    "title": "Mickey et sa Parade étincelante de Noël",
     "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/christmasparade.jpg",
     "duration": 30
   },
   {
     "time": [
-      "11:10",
-      "12:20",
+      "10:30",
+      "11:15",
+      "12:00",
+      "12:45",
       "13:30",
+      "14:15",
+      "15:00",
+      "15:45",
+      "16:30",
+      "17:15",
+      "18:00",
+      "18:45"
+    ],
+    "title": "La Reine des Neiges",
+    "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/frozen.jpg",
+    "duration": 30
+  },
+  {
+    "time": [
+      "14:45",
+      "15:45",
+      "18:20",
+      "19:25"
+    ],
+    "title": "Spectacle musical Chantons Noël!",
+    "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/singchristmas.jpg",
+    "duration": 25
+  },
+  {
+    "time": [
+      "11:05",
+      "12:15",
+      "13:35",
       "15:40",
       "16:50"
     ],
     "title": "TOGETHER*",
-    "subtitle": "une Aventure Musicale Pixar",
-    "image_url": "/trip-organizer/assets/images/together.jpg",
+    "subtitle": "Une Aventure Musicale Pixar",
     "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/together.jpg",
     "duration": 30
   },
   {
     "time": [
-      "22:50"
+      "22:00"
     ],
-    "title": "Electrical Sky Parade*",
-    "image_url": "/trip-organizer/assets/images/msepis.jpg",
+    "title": "Tales of Magic",
     "location": "Disneyland Park",
-    "duration": 7
+    "image_url": "/trip-organizer/assets/images/talesofmagic.jpg",
+    "duration": 10
   },
   {
     "time": [
-      "23:00"
+      "12:10",
+      "13:10",
+      "15:45",
+      "16:45"
     ],
-    "title": "Illuminations",
-    "image_url": "/trip-organizer/assets/images/illuminations.jpg",
+    "title": "Le Roi Lion et les Rythmes de la Terre",
     "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/lionking.png",
+    "duration": 30
+  },
+  {
+    "time": [
+      "18:15",
+      "19:00"
+    ],
+    "title": "Doctor Strange: Journey into the Mystic Arts",
+    "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/doctorstrange.jpg",
     "duration": 20
   }
 ]

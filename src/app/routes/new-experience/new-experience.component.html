@@ -1,43 +1,43 @@
 <main>
   <mat-card class="p-4">
     <form (ngSubmit)="onSubmit()" [formGroup]="experienceForm" class="flex flex-col">
-      <mat-form-field class="w-64">
+      <mat-form-field class="w-full">
         <mat-label>Title</mat-label>
         <input formControlName="title" matInput required/>
 
         <mat-error></mat-error>
       </mat-form-field>
 
-      <mat-form-field class="w-64">
+      <mat-form-field class="w-full">
         <mat-label>Subtitle</mat-label>
         <input formControlName="subtitle" matInput/>
       </mat-form-field>
 
-      <app-days-select [selectedDay]="selectedDay" style="width:256px !important"></app-days-select>
+      <app-days-select [selectedDay]="selectedDay" class="w-full"></app-days-select>
 
-      <mat-form-field class="w-64">
+      <mat-form-field class="w-full">
         <mat-label>Time</mat-label>
         <input formControlName="time" matInput required type="time"/>
       </mat-form-field>
 
-      <mat-form-field class="w-64">
+      <mat-form-field class="w-full">
         <mat-label>
           <mat-icon>schedule</mat-icon>
           <strong> Duration </strong> <em> minutes</em></mat-label>
         <input formControlName="duration" matInput type="number"/>
       </mat-form-field>
 
-      <mat-form-field class="w-64">
+      <mat-form-field class="w-full">
         <mat-label>Location</mat-label>
         <input formControlName="location" matInput required/>
       </mat-form-field>
 
-      <mat-form-field class="w-64">
+      <mat-form-field class="w-full">
         <mat-label>Image URL</mat-label>
         <input formControlName="image_url" matInput/>
       </mat-form-field>
 
-      <button class="w-64" color="primary" mat-flat-button type="submit">
+      <button class="w-full" color="primary" mat-flat-button type="submit">
         <mat-icon>add</mat-icon>
         Add
       </button>
