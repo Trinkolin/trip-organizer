@@ -2,17 +2,17 @@
   <mat-label>Day</mat-label>
   <mat-select [formControl]="selectedDay()" required>
     @for (day of days; track day) {
-      <mat-option [value]="day.value">{{
-          day.viewValue | date : "fullDate"
-        }}
-      </mat-option>
+    <mat-option [value]="day.value">{{
+      day.viewValue | date : "fullDate"
+      }}
+    </mat-option>
     }
   </mat-select>
 
   <mat-error>
 
     @if (days.length === 0){
-      You need to fill in the trip info before being able to use the selector
+    You need to fill in the trip info before being able to use the selector
     }
   </mat-error>
 </mat-form-field>

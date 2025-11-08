@@ -1,6 +1,6 @@
-<mat-card class="flex flex-col gap-4" raised>
+<mat-card class="flex flex-col gap-4" appearance="outlined">
   <mat-card-header>
-    <div mat-card-avatar >
+    <div mat-card-avatar>
       @if (spectacle().location === DLP) {
       <mat-icon fontIcon="castle">castle</mat-icon>
       }
@@ -13,11 +13,11 @@
     </mat-card-title>
     <mat-card-subtitle>
       @if (spectacle().subtitle) {
-        {{
-          (spectacle().subtitle! | truncate : 30)
-        }}
+      {{
+      (spectacle().subtitle! | truncate : 30)
+      }}
       } @else {
-        {{ "&nbsp;" }}
+      {{ "&nbsp;" }}
       }
     </mat-card-subtitle>
   </mat-card-header>
@@ -29,10 +29,10 @@
           {{ spectacle().location }}
         </mat-chip>
         @if (spectacle().duration) {
-          <mat-chip class="w-full md:w-1/2">
-            <mat-icon matChipTrailingIcon>schedule</mat-icon>
-            {{ spectacle().duration }} min
-          </mat-chip>
+        <mat-chip class="w-full md:w-1/2">
+          <mat-icon matChipTrailingIcon>schedule</mat-icon>
+          {{ spectacle().duration }} min
+        </mat-chip>
         }
       </div>
     </div>
@@ -44,10 +44,10 @@
         <mat-button-toggle-group [formControl]="timeCtrl" [hideMultipleSelectionIndicator]="true" multiple>
 
           @for (time of spectacle().time; track time) {
-            <mat-button-toggle value="{{ time }}">{{
-                time
-              }}
-            </mat-button-toggle>
+          <mat-button-toggle value="{{ time }}">{{
+            time
+            }}
+          </mat-button-toggle>
           }
         </mat-button-toggle-group>
       </div>

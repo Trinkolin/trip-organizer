@@ -1,6 +1,6 @@
-import {inject, Injectable} from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import spectaclesJson from '../../assets/json/spectacles.json';
-import {DataService} from './core/data.service';
+import { DataService } from './core/data.service';
 
 export type Experience = {
   time: string[];
@@ -14,153 +14,211 @@ export type Experience = {
 export const DLP = 'Disneyland Park';
 export const WDS = 'Walt Disney Studios';
 
+type DayEvents = Record<string, Experience[]>;
+
 @Injectable({
   providedIn: 'root',
 })
 export class ExperienceService {
-  dayEvents = inject(DataService).getData('dayEvents') ?? {};
-
+  private readonly STORAGE_KEY = 'dayEvents';
+  
+  dayEvents: DayEvents = inject(DataService).getData(this.STORAGE_KEY) ?? {};
   spectacles = spectaclesJson;
+  
+  private dataService = inject(DataService);
 
-  dataService = inject(DataService);
-
-  getSpectacles() {
+  getSpectacles(): Experience[] {
     return this.spectacles;
   }
 
-  getExperiencesByLocation(location: string) {
+  getExperiencesByLocation(location: string): string[] {
     return this.getSpectacles()
       .filter((experience) => experience.location === location)
       .map((spectacle) => spectacle.title);
   }
 
-  isParkSelected(park: string, selectedPark: string[] | null) {
-    if (selectedPark) {
-      if (
-        selectedPark.length === 2 ||
-        (park === DLP && selectedPark.includes(DLP)) ||
-        (park === WDS && selectedPark.includes(WDS))
-      ) {
-        return true;
-      }
-    }
-    return false;
+  isParkSelected(park: string, selectedPark: string[] | null): boolean {
+    return selectedPark?.length === 2 || selectedPark?.includes(park) || false;
   }
 
   isSpectacleSelected(
     spectacle: Experience,
     selectedSpectacles: string[] | null
-  ) {
+  ): boolean {
     return (selectedSpectacles || []).includes(spectacle.title);
-  }
-
-  addExperience(
-    experience: Experience,
-    dayValue: string,
-    timeValue: string[]
-  ) {
-    let modified = false;
-
-    if (experience) {
-      if (!this.dayEvents[dayValue]) {
-        this.dayEvents[dayValue] = [];
-      }
-
-      const eventIndex = this.extracted(dayValue, experience);
-
-      if (eventIndex === -1) {
-        const shallowCopy = {...experience};
-        shallowCopy.time = timeValue;
-        this.dayEvents[dayValue].push(shallowCopy);
-        modified = true;
-      } else {
-        const existingEvent = this.dayEvents[dayValue][eventIndex];
-        const timesToAdd = this.getTimesToAdd(existingEvent.time, timeValue);
-
-        if (timesToAdd.length > 0) {
-          for (let t of timesToAdd) {
-            const shallowCopy = {...experience};
-            shallowCopy.time = [t];
-            this.dayEvents[dayValue].push(shallowCopy);
-          }
-          modified = true;
-        }
-      }
-
-      this.dayEvents[dayValue].sort((a: { time: string[]; }, b: { time: any[]; }) =>
-        a.time[0].localeCompare(b.time[0])
-      );
-    }
-
-    return modified;
   }
 
   add(
     experience: Experience,
     dayValue: string | null,
     timeValue: string[]
-  ) {
-    if (dayValue && timeValue.length > 0) {
-      let modified = this.addExperience(experience, dayValue, timeValue);
-      if (modified) {
-        this.dataService.removeItem('dayEvents');
-        this.dataService.storeData('dayEvents', this.dayEvents);
-      }
+  ): void {
+    if (!this.isValidInput(dayValue, timeValue)) {
+      return;
     }
+
+    const modified = this.addExperience(experience, dayValue!, timeValue);
+    this.persistChanges(modified);
   }
 
-  removeExperience(
+  remove(
+    experience: Experience,
+    dayValue: string | null,
+    timeValue: string[]
+  ): void {
+    if (!this.isValidInput(dayValue, timeValue)) {
+      return;
+    }
+
+    const modified = this.removeExperience(experience, dayValue!, timeValue);
+    this.persistChanges(modified);
+  }
+
+  private addExperience(
     experience: Experience,
     dayValue: string,
     timeValue: string[]
-  ) {
-    let modified = false;
-
-    if (experience && this.dayEvents[dayValue]) {
-      const eventIndex = this.extracted(dayValue, experience);
-
-      if (eventIndex !== -1) {
-        const existingEvent = this.dayEvents[dayValue][eventIndex];
-        const remainingTimes = existingEvent.time.filter(
-          (time: string) => !timeValue.includes(time)
-        );
-
-        if (remainingTimes.length > 0) {
-          this.dayEvents[dayValue][eventIndex].time = remainingTimes;
-        } else {
-          this.dayEvents[dayValue].splice(eventIndex, 1);
-        }
-
-        modified = true;
-      }
-
-      if (this.dayEvents[dayValue].length === 0) {
-        delete this.dayEvents[dayValue];
-      }
+  ): boolean {
+    if (!experience) {
+      return false;
     }
 
-    return modified;
-  }
+    this.ensureDayExists(dayValue);
 
-  remove(experience: Experience, dayValue: string | null, timeValue: string[]) {
-    if (dayValue && timeValue.length > 0) {
-      let modified = this.removeExperience(experience, dayValue, timeValue);
-      if (modified) {
-        this.dataService.removeItem('dayEvents');
-        this.dataService.storeData('dayEvents', this.dayEvents);
-      }
+    const eventIndex = this.findEventIndex(dayValue, experience);
+
+    if (eventIndex === -1) {
+      return this.addNewExperience(experience, dayValue, timeValue);
     }
-  }
 
-  private extracted(dayValue: string, experience: Experience) {
-    return this.dayEvents[dayValue].findIndex(
-      (event: { title: string; }) => event.title === experience.title
+    return this.addTimesToExistingExperience(
+      experience,
+      dayValue,
+      timeValue,
+      eventIndex
     );
   }
 
-  private getTimesToAdd(existingTimes: string[], newTimes: string[]) {
+  private addNewExperience(
+    experience: Experience,
+    dayValue: string,
+    timeValue: string[]
+  ): boolean {
+    const newExperience = this.createExperienceWithTime(experience, timeValue);
+    this.dayEvents[dayValue].push(newExperience);
+    this.sortEventsByTime(this.dayEvents[dayValue]);
+    return true;
+  }
+
+  private addTimesToExistingExperience(
+    experience: Experience,
+    dayValue: string,
+    timeValue: string[],
+    eventIndex: number
+  ): boolean {
+    const existingEvent = this.dayEvents[dayValue][eventIndex];
+    const timesToAdd = this.getTimesToAdd(existingEvent.time, timeValue);
+
+    if (timesToAdd.length === 0) {
+      return false;
+    }
+
+    timesToAdd.forEach((time) => {
+      const newExperience = this.createExperienceWithTime(experience, [time]);
+      this.dayEvents[dayValue].push(newExperience);
+    });
+
+    this.sortEventsByTime(this.dayEvents[dayValue]);
+    return true;
+  }
+
+  private removeExperience(
+    experience: Experience,
+    dayValue: string,
+    timeValue: string[]
+  ): boolean {
+    if (!experience || !this.dayEvents[dayValue]) {
+      return false;
+    }
+
+    const eventIndex = this.findEventIndex(dayValue, experience);
+
+    if (eventIndex === -1) {
+      return false;
+    }
+
+    this.removeTimesFromEvent(dayValue, eventIndex, timeValue);
+    this.cleanupEmptyDay(dayValue);
+
+    return true;
+  }
+
+  private removeTimesFromEvent(
+    dayValue: string,
+    eventIndex: number,
+    timeValue: string[]
+  ): void {
+    const existingEvent = this.dayEvents[dayValue][eventIndex];
+    const remainingTimes = existingEvent.time.filter(
+      (time) => !timeValue.includes(time)
+    );
+
+    if (remainingTimes.length > 0) {
+      this.dayEvents[dayValue][eventIndex].time = remainingTimes;
+    } else {
+      this.dayEvents[dayValue].splice(eventIndex, 1);
+    }
+  }
+
+  private cleanupEmptyDay(dayValue: string): void {
+    if (this.dayEvents[dayValue].length === 0) {
+      delete this.dayEvents[dayValue];
+    }
+  }
+
+  private findEventIndex(dayValue: string, experience: Experience): number {
+    return this.dayEvents[dayValue].findIndex(
+      (event) => event.title === experience.title
+    );
+  }
+
+  private getTimesToAdd(
+    existingTimes: string[],
+    newTimes: string[]
+  ): string[] {
     const existingTimesSet = new Set(existingTimes);
     const timesToAdd = newTimes.filter((time) => !existingTimesSet.has(time));
     return timesToAdd.sort((a, b) => a.localeCompare(b));
+  }
+
+  private createExperienceWithTime(
+    experience: Experience,
+    time: string[]
+  ): Experience {
+    return { ...experience, time };
+  }
+
+  private sortEventsByTime(events: Experience[]): void {
+    events.sort((a, b) => a.time[0].localeCompare(b.time[0]));
+  }
+
+  private ensureDayExists(dayValue: string): void {
+    if (!this.dayEvents[dayValue]) {
+      this.dayEvents[dayValue] = [];
+    }
+  }
+
+  private isValidInput(
+    dayValue: string | null,
+    timeValue: string[]
+  ): boolean {
+    return dayValue !== null && timeValue.length > 0;
+  }
+
+  private persistChanges(modified: boolean): void {
+    if (modified) {
+      this.dataService.removeItem(this.STORAGE_KEY);
+      this.dataService.storeData(this.STORAGE_KEY, this.dayEvents);
+    }
   }
 }

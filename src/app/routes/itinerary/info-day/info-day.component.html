@@ -1,6 +1,8 @@
-<mat-card class="p-4">
-  <h3>{{ getDate() | date : "fullDate" }}</h3>
-  <div class="mat-elevation-z8">
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> {{ getDate() | date : "fullDate" }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
     <table [dataSource]="dataSource" class="full-width-table" mat-table>
       <ng-container matColumnDef="time">
         <th *matHeaderCellDef mat-header-cell>Time</th>
@@ -36,5 +38,5 @@
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
       <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
     </table>
-  </div>
+  </mat-card-content>
 </mat-card>
