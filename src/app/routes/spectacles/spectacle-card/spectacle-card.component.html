@@ -41,19 +41,19 @@
   <mat-card-actions>
     <div class="flex flex-col w-full gap-4">
       <div class="flex items-center justify-center">
-        <mat-button-toggle-group [formControl]="timeCtrl" [hideMultipleSelectionIndicator]="true" multiple>
-
-          @for (time of spectacle().time; track time) {
-          <mat-button-toggle value="{{ time }}">{{
-            time
-            }}
-          </mat-button-toggle>
-          }
-        </mat-button-toggle-group>
+        <div class="overflow-x-auto max-w-full">
+          <mat-button-toggle-group [formControl]="timeCtrl" [hideMultipleSelectionIndicator]="true" multiple
+            class="flex-nowrap">
+            @for (time of spectacle().time; track time) {
+            <mat-button-toggle value="{{ time }}">
+              {{ time }}
+            </mat-button-toggle>
+            }
+          </mat-button-toggle-group>
+        </div>
       </div>
 
       <app-days-select [selectedDay]="selectedDay"></app-days-select>
-
 
       <div class="flex flex-row w-full gap-x-4">
         <button (click)="add(spectacle())" class="w-full md:w-1/2" mat-flat-button>

@@ -13,3 +13,48 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+/* Styles de base pour les items de navigation */
+.nav-item {
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Couleurs arc-en-ciel */
+.nav-item-red:hover::after {
+  background-color: #E74C3C; /* Rouge */
+}
+
+.nav-item-orange:hover::after {
+  background-color: #FF6B35; /* Orange */
+}
+
+.nav-item-yellow:hover::after {
+  background-color: #F4D03F; /* Jaune */
+}
+
+.nav-item-green:hover::after {
+  background-color: #2ECC71; /* Vert */
+}
+
+.nav-item-blue:hover::after {
+  background-color: #3498DB; /* Bleu */
+}
+
+.nav-item-purple:hover::after {
+  background-color: #9B59B6; /* Violet */
+}
+
