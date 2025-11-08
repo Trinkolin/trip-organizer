@@ -1,0 +1,103 @@
+[
+  {
+    "time": [
+      "09:05",
+      "09:55",
+      "10:45",
+      "11:35",
+      "13:50",
+      "14:45"
+    ],
+    "title": "Le Partage Gourmand de la Mère Noël",
+    "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/motherchristmas.jpg",
+    "duration": 20
+  },
+  {
+    "time": [
+      "15:55",
+      "17:45"
+    ],
+    "title": "Mickey et sa Parade étincelante de Noël",
+    "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/christmasparade.jpg",
+    "duration": 30
+  },
+  {
+    "time": [
+      "10:30",
+      "11:15",
+      "12:00",
+      "12:45",
+      "13:30",
+      "14:15",
+      "15:00",
+      "15:45",
+      "16:30",
+      "17:15",
+      "18:00",
+      "18:45"
+    ],
+    "title": "La Reine des Neiges",
+    "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/frozen.jpg",
+    "duration": 30
+  },
+  {
+    "time": [
+      "14:45",
+      "15:45",
+      "18:20",
+      "19:25"
+    ],
+    "title": "Spectacle musical Chantons Noël!",
+    "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/singchristmas.jpg",
+    "duration": 25
+  },
+  {
+    "time": [
+      "11:05",
+      "12:15",
+      "13:35",
+      "15:40",
+      "16:50"
+    ],
+    "title": "TOGETHER*",
+    "subtitle": "Une Aventure Musicale Pixar",
+    "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/together.jpg",
+    "duration": 30
+  },
+  {
+    "time": [
+      "22:00"
+    ],
+    "title": "Tales of Magic",
+    "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/talesofmagic.jpg",
+    "duration": 10
+  },
+  {
+    "time": [
+      "12:10",
+      "13:10",
+      "15:45",
+      "16:45"
+    ],
+    "title": "Le Roi Lion et les Rythmes de la Terre",
+    "location": "Disneyland Park",
+    "image_url": "/trip-organizer/assets/images/lionking.png",
+    "duration": 30
+  },
+  {
+    "time": [
+      "18:15",
+      "19:00"
+    ],
+    "title": "Doctor Strange: Journey into the Mystic Arts",
+    "location": "Walt Disney Studios",
+    "image_url": "/trip-organizer/assets/images/doctorstrange.jpg",
+    "duration": 20
+  }
+]
