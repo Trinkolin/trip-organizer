@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, V
 import {ExperienceService} from "../../shared/experience.service";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCard} from "@angular/material/card";
-import {CommonModule} from "@angular/common";
+
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
@@ -14,16 +14,15 @@ import {DaysSelectComponent} from "../../shared/core/days-select/days-select.com
 @Component({
     selector: 'app-new-experience',
     imports: [
-        ReactiveFormsModule,
-        MatCard,
-        CommonModule,
-        MatButtonModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatInputModule,
-        DaysSelectComponent,
-        FormsModule
-    ],
+    ReactiveFormsModule,
+    MatCard,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    DaysSelectComponent,
+    FormsModule
+],
     templateUrl: './new-experience.component.html'
 })
 export class NewExperienceComponent {

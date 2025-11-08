@@ -5,7 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {TruncatePipe} from '../../../shared/truncate.pipe';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import {CommonModule} from '@angular/common';
+
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
 import {MatChipsModule,} from '@angular/material/chips';
@@ -15,19 +15,18 @@ import {DaysSelectComponent} from '../../../shared/core/days-select/days-select.
 @Component({
     selector: 'app-spectacle-card',
     imports: [
-        MatCardModule,
-        TruncatePipe,
-        MatFormFieldModule,
-        MatSelectModule,
-        CommonModule,
-        MatIcon,
-        ReactiveFormsModule,
-        MatButton,
-        FormsModule,
-        MatChipsModule,
-        MatButtonToggleModule,
-        DaysSelectComponent,
-    ],
+    MatCardModule,
+    TruncatePipe,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatIcon,
+    ReactiveFormsModule,
+    MatButton,
+    FormsModule,
+    MatChipsModule,
+    MatButtonToggleModule,
+    DaysSelectComponent
+],
     templateUrl: './spectacle-card.component.html'
 })
 export class SpectacleCardComponent {

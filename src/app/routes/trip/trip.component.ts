@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {TripService} from './trip.service';
-import {CommonModule} from '@angular/common';
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
@@ -18,19 +18,18 @@ import {MatCardModule} from '@angular/material/card';
 @Component({
     selector: 'app-trip',
     imports: [
-        CommonModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        MatStepperModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        TripDetailComponent,
-        MatCardModule,
-    ],
+    MatDatepickerModule,
+    MatSelectModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    TripDetailComponent,
+    MatCardModule
+],
     providers: [
         {
             provide: STEPPER_GLOBAL_OPTIONS,

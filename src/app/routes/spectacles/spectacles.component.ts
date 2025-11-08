@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {CommonModule} from '@angular/common';
+
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -22,26 +22,25 @@ export type DayEvents = { [key: string]: Experience[] };
 @Component({
     selector: 'app-spectacles',
     imports: [
-        MatCardModule,
-        MatDividerModule,
-        MatButtonModule,
-        MatProgressBarModule,
-        MatGridListModule,
-        MatButtonToggleModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatInputModule,
-        FormsModule,
-        CommonModule,
-        MatButtonModule,
-        MatDividerModule,
-        MatIconModule,
-        MatChipsModule,
-        SpectacleCardComponent,
-        SelectedParkPipe,
-    ],
+    MatCardModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatChipsModule,
+    SpectacleCardComponent,
+    SelectedParkPipe
+],
     templateUrl: './spectacles.component.html'
 })
 export class SpectaclesComponent {
