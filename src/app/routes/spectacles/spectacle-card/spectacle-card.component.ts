@@ -9,29 +9,26 @@ import {CommonModule} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
 import {MatChipsModule,} from '@angular/material/chips';
-import {MatCheckbox} from '@angular/material/checkbox';
 import {MatButtonToggleModule,} from '@angular/material/button-toggle';
 import {DaysSelectComponent} from '../../../shared/core/days-select/days-select.component';
 
 @Component({
-  selector: 'app-spectacle-card',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    TruncatePipe,
-    MatFormFieldModule,
-    MatSelectModule,
-    CommonModule,
-    MatIcon,
-    ReactiveFormsModule,
-    MatButton,
-    FormsModule,
-    MatChipsModule,
-    MatButtonToggleModule,
-    MatCheckbox,
-    DaysSelectComponent,
-  ],
-  templateUrl: './spectacle-card.component.html',
+    selector: 'app-spectacle-card',
+    imports: [
+        MatCardModule,
+        TruncatePipe,
+        MatFormFieldModule,
+        MatSelectModule,
+        CommonModule,
+        MatIcon,
+        ReactiveFormsModule,
+        MatButton,
+        FormsModule,
+        MatChipsModule,
+        MatButtonToggleModule,
+        DaysSelectComponent,
+    ],
+    templateUrl: './spectacle-card.component.html'
 })
 export class SpectacleCardComponent {
 

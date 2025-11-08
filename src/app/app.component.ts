@@ -3,15 +3,12 @@ import {RouterModule} from '@angular/router';
 import {FooterComponent} from "./shared/core/footer/footer.component";
 import {HeaderComponent} from "./shared/core/header/header.component";
 import {CommonModule} from '@angular/common';
-import {MatDivider} from "@angular/material/divider";
-import {MatIcon} from "@angular/material/icon";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [RouterModule, FooterComponent, HeaderComponent, CommonModule, MatDivider, MatIcon],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [RouterModule, FooterComponent, HeaderComponent, CommonModule, ]
 })
 export class AppComponent {
   title = 'trip-organizer';

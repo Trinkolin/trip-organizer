@@ -16,31 +16,30 @@ import {TripDetailComponent} from './trip-detail/trip-detail.component';
 import {MatCardModule} from '@angular/material/card';
 
 @Component({
-  selector: 'app-trip',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    TripDetailComponent,
-    MatCardModule,
-  ],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {displayDefaultIndicatorType: false},
-    },
-    provideNativeDateAdapter(),
-  ],
-  templateUrl: './trip.component.html',
-  styleUrl: 'trip.component.css',
+    selector: 'app-trip',
+    imports: [
+        CommonModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        TripDetailComponent,
+        MatCardModule,
+    ],
+    providers: [
+        {
+            provide: STEPPER_GLOBAL_OPTIONS,
+            useValue: { displayDefaultIndicatorType: false },
+        },
+        provideNativeDateAdapter(),
+    ],
+    templateUrl: './trip.component.html',
+    styleUrl: 'trip.component.css'
 })
 export class TripComponent {
   tripService = inject(TripService);

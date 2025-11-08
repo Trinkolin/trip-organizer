@@ -3,10 +3,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from "@angular/material/card";
 
 @Component({
-  selector: 'app-general-info',
-  standalone: true,
-  imports: [MatListModule, MatCardModule],
-  templateUrl: './general-info.component.html',
+    selector: 'app-general-info',
+    imports: [MatListModule, MatCardModule],
+    templateUrl: './general-info.component.html'
 })
 export class GeneralInfoComponent {
 }

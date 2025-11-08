@@ -6,15 +6,14 @@ import {DateRangeService} from '../../daterange.service';
 import {CommonModule} from '@angular/common';
 
 @Component({
-  selector: 'app-days-select',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    CommonModule,
-  ],
-  templateUrl: './days-select.component.html',
+    selector: 'app-days-select',
+    imports: [
+        MatFormFieldModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        CommonModule,
+    ],
+    templateUrl: './days-select.component.html'
 })
 export class DaysSelectComponent {
   selectedDay = input.required<FormControl>();

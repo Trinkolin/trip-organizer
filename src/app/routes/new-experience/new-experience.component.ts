@@ -12,20 +12,19 @@ import {DataService} from "../../shared/core/data.service";
 import {DaysSelectComponent} from "../../shared/core/days-select/days-select.component";
 
 @Component({
-  selector: 'app-new-experience',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatCard,
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    DaysSelectComponent,
-    FormsModule
-  ],
-  templateUrl: './new-experience.component.html',
+    selector: 'app-new-experience',
+    imports: [
+        ReactiveFormsModule,
+        MatCard,
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        DaysSelectComponent,
+        FormsModule
+    ],
+    templateUrl: './new-experience.component.html'
 })
 export class NewExperienceComponent {
 

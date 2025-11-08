@@ -12,7 +12,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-import {TruncatePipe} from '../../shared/truncate.pipe';
 import {MatChipsModule} from '@angular/material/chips';
 
 import {SpectacleCardComponent} from './spectacle-card/spectacle-card.component';
@@ -21,31 +20,29 @@ import {SelectedParkPipe} from '../../shared/selected-park.pipe';
 export type DayEvents = { [key: string]: Experience[] };
 
 @Component({
-  selector: 'app-spectacles',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatProgressBarModule,
-    MatGridListModule,
-    MatButtonToggleModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    FormsModule,
-    CommonModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatIconModule,
-    TruncatePipe,
-    MatChipsModule,
-    SpectacleCardComponent,
-    SelectedParkPipe,
-  ],
-  templateUrl: './spectacles.component.html',
+    selector: 'app-spectacles',
+    imports: [
+        MatCardModule,
+        MatDividerModule,
+        MatButtonModule,
+        MatProgressBarModule,
+        MatGridListModule,
+        MatButtonToggleModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        FormsModule,
+        CommonModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatIconModule,
+        MatChipsModule,
+        SpectacleCardComponent,
+        SelectedParkPipe,
+    ],
+    templateUrl: './spectacles.component.html'
 })
 export class SpectaclesComponent {
   experienceService = inject(ExperienceService);

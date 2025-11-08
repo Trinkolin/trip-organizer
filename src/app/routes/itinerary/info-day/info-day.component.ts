@@ -7,15 +7,14 @@ import {DateRangeService} from '../../../shared/daterange.service';
 import {MatIcon} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-info-day',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatCardModule,
-    MatIcon,
-  ],
-  templateUrl: './info-day.component.html',
+    selector: 'app-info-day',
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatCardModule,
+        MatIcon,
+    ],
+    templateUrl: './info-day.component.html'
 })
 export class InfoDayComponent implements OnInit {
   displayedColumns = [
